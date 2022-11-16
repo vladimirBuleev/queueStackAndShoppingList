@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Finance {
-    List<Item> shoppingList = new ArrayList<>();
+    private List<Item> shoppingList = new ArrayList<>();
 
-    public void add(String name,int price,Type type) {
-        Item newItem = new Item(name,price,type);
+    public void add(String name, int price, Type type) {
+        Item newItem = new Item(name, price, type);
         shoppingList.add(newItem);
     }
 
@@ -27,12 +27,7 @@ public class Finance {
     }
 
     public void delete(String value) {
-        for (int i = 0; i < shoppingList.size(); i++) {
-            if (shoppingList.get(i).getName().equals(value)) {
-                shoppingList.remove(i);
-
-            }
-        }
+        shoppingList.remove(new Item(value));
     }
 
     public int totalCost() {

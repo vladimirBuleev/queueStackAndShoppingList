@@ -5,6 +5,10 @@ public class Item {
     private int price;
     private Type type;
 
+    public Item(String name) {
+        this.name = name;
+    }
+
     public Item(String name, int price, Type type) {
         this.name = name;
         this.price = price;
@@ -41,5 +45,20 @@ public class Item {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", types=" + type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Item item = (Item) o;
+
+        return name != null ? name.equals(item.name) : item.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
     }
 }
